@@ -12,7 +12,7 @@ chatRoom인스턴스는 DB에 저장되는 것이 아니라, JVM 메모리 힙 �
 각각의 chatRoom인스턴스는 개별적으로 Unique한 Set < WebSocketSession > 을 가지고 있음.
 
 예시)
-사용자가 1이라는 chatRoom에 접속을 한 경우 -> 해당 사용자의 Session은 chatRoom의 id가 1인 Session집합에 저장이 됨. ( 이는 다른 chatRoom에게도 동일하게 적용이 됨.)
+사용자가 1이라는 chatRoom에 접속을 한 경우 -> 해당 사용자의 Session은 chatRoom의 id가 1인 Set < WebSocketSession >에 저장이 됨. ( 이는 다른 chatRoom에게도 동일하게 적용이 됨.)
 채팅을 입력할 경우 -> id가 1인 chatRoom을 find한 후 -> 해당 chatRoom의 Set < WebSocketSession > 의 Session들에게 Message를 브로드캐스팅을 함.
 
 (추가)
