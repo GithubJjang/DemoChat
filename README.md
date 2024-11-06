@@ -9,7 +9,7 @@
 (상세)
 
 chatRoom클래스는 DB에 저장되는 것이 아니라, JVM 메모리 힙 영역에 반드시 상주를 해야 함. ( Session 관리를 위해서 메모리에 항상 존재해야함.)
-각각의 클래스는 개별적으로 Unique한 Session 집합을 가지고 있음.
+각각의 chatRoom인스턴스는 개별적으로 Unique한 Session 집합을 가지고 있음.
 
 예시)
 사용자가 1이라는 chatRoom에 접속을 한 경우 -> 해당 사용자의 Session은 chatRoom의 id가 1인 Session집합에 저장이 됨. ( 이는 다른 chatRoom에게도 동일하게 적용이 됨.)
