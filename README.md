@@ -9,11 +9,11 @@
 (상세)
 
 chatRoom인스턴스는 DB에 저장되는 것이 아니라, JVM 메모리 힙 영역에 반드시 상주를 해야 함. ( Session 관리를 위해서 메모리에 항상 존재해야함.)
-각각의 chatRoom인스턴스는 개별적으로 Unique한 Set<WebSocketSession>을 가지고 있음.
+각각의 chatRoom인스턴스는 개별적으로 Unique한 Set < WebSocketSession > 을 가지고 있음.
 
 예시)
 사용자가 1이라는 chatRoom에 접속을 한 경우 -> 해당 사용자의 Session은 chatRoom의 id가 1인 Session집합에 저장이 됨. ( 이는 다른 chatRoom에게도 동일하게 적용이 됨.)
-채팅을 입력할 경우 -> id가 1인 chatRoom을 find한 후 -> 해당 chatRoom의 Set<WebSocketSession>의 Session들에게 Message를 브로드캐스팅을 함.
+채팅을 입력할 경우 -> id가 1인 chatRoom을 find한 후 -> 해당 chatRoom의 Set < WebSocketSession > 의 Session들에게 Message를 브로드캐스팅을 함.
 
 (추가)
 1. 프론트엔드에서는 useEffect을 통해서, 백엔드 서버와 Socket연결을 함. 단, Socket은 useRef를 사용했고, 채팅이 연결된 상태에서 Socket에 대한 변경감지가 필요없을 것이라 판단이 됨.
